@@ -1,0 +1,70 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+}
+
+.container{
+    position: relative;
+    height: 100vh;
+    background-image: url('imagens/fundo.jpg');
+    background-size: cover;
+    background-position: center;
+
+}
+
+form{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50vw;
+    height: 65vh;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 0 15px 0 15px;
+    background-image: url('imagens/lapis.jpg');
+    background-size: cover;
+    background-position: center;
+    box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.774) ;
+}
+
+input{
+    border-color: lightskyblue;
+    border-radius: 5px;
+    padding: 5px;
+    width: 70px;
+    height: 30px;
+}
+
+.campo{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.campo.nome input{
+    width: 30vw;
+}
+
+.campo.botao input{
+    position: relative;
+    left: 50%;
+    width: 15%;
+    transform: translateX(-50%);
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 2s;
+}
+
+

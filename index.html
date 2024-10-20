@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário</title>
+    <link rel="stylesheet" href="formulario.css">
+</head>
+
+<body>
+    <div class="container">
+        <form action="formulario.php" method="post">
+            <div class="campo nome">
+                <label for="nome">Nome:</label>
+                <input type="text" name="nome" id="nome" required placeholder="Digite o nome do aluno">
+            </div>
+            <div class="campo turma">
+                <label for="turma">Turma:</label>
+                <input type="number" name="turma" id="turma" min="1" max="100" required placeholder="ex: 14">
+            </div>
+
+            <div class="campo nota_exigida">
+                <label for="nota_exigida">Nota exigida por bimestre:</label>
+                <input type="number" name="nota_exigida" id="nota_exigida" min="1" max="10" step="0.1" placeholder="ex: 10" required>
+            </div>
+
+            <div class="campo bimestre_1">
+                <label for="bimestre_1">1° bimestre:</label>
+                <input type="number" name="bimestre_1" id="bimestre_1" min="0" max="100" step="0.1" required placeholder="ex: 7.0">
+            </div>
+
+            <div class="campo bimestre_2">
+                <label for="bimestre_2">2° bimestre:</label>
+                <input type="number" name="bimestre_2" id="bimestre_2" min="0" max="100" step="0.1" required placeholder="ex: 8.6">
+            </div>
+
+            <div class="campo bimestre_3">
+                <label for="bimestre_3">3° bimestre:</label>
+                <input type="number" name="bimestre_3" id="bimestre_3" min="0" max="100" step="0.1" required placeholder="ex: 6.2">
+            </div>
+
+            <div class="campo bimestre_4">
+                <label for="bimestre_4">4° bimestre:</label>
+                <input type="number" name="bimestre_4" id="bimestre_4" min="0" max="100" step="0.1" required placeholder="ex: 5">
+            </div>
+
+            <div class="campo botao">
+                <input type="submit" value="Enviar">
+            </div>
+        </form>
+    </div>
+</body>
+</html>

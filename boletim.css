@@ -1,0 +1,28 @@
+body{
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+table, th, td{
+    border: 1px solid rgb(227, 233, 227);
+    border-collapse: collapse;
+    text-align: center;
+    padding: 10px;
+}
+
+table th{
+    background-color: rgb(89, 89, 241);
+    color: white;
+}
+
+.resultado{
+    background-color: rgb(224, 222, 222);
+}
+
+
