@@ -10,10 +10,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $turma = $_POST["turma"];
 
     // Notas de cada bimestre
-    $bimestre_1 = $_POST["bimestre_1"];
-    $bimestre_2 = $_POST["bimestre_2"];
-    $bimestre_3 = $_POST["bimestre_3"];
-    $bimestre_4 = $_POST["bimestre_4"];
+    $bimestre_1 = (float) $_POST["bimestre_1"];
+    $bimestre_2 = (float) $_POST["bimestre_2"];
+    $bimestre_3 = (float) $_POST["bimestre_3"];
+    $bimestre_4 = (float) $_POST["bimestre_4"];
 
     // Nota exigida por bimestre
     $nota_exigida = $_POST["nota_exigida"];
@@ -23,10 +23,25 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // Aproveitamento em percentual
     $aproveitamento_ano = $media_final * 10 / 10;
+
+    // session será um array de turmas e, por sua vez, cada turma será um array de alunos, os quais serão um array associativo, contendo matrícula, nome e notas (notas deve estar no formato de array).
+
+    $_SESSION["turmas"] = []; // session será um array de turmas
+
+    $_SESSION["turmas"] = [$turma => [],]; // cada turma será um array
+
+    $_SESSION["turmas"][$turma] = ["alunos" => []]; // turma será um array de alunos
+
+    $_SESSION["turmas"][$turma]["alunos"] = ["matricula" => "id_matricula", "nome" => $nome, "notas" => [$bimestre_1, $bimestre_2, $bimestre_3, $bimestre_4]]; // um array associativo, contendo matrícula, nome e notas
+
+    echo "<pre>";
+    var_dump($_SESSION);
+    echo "<pre>";
 };
 
 
-function avaliar($nota) {
+function avaliar($nota)
+{
     if ($nota >= 8 && $nota <= 10) {
         return "EXCELENTE";
     } elseif ($nota >= 6 && $nota < 8) {
@@ -46,22 +61,6 @@ $situacao_3 = avaliar($bimestre_3);
 $situacao_4 = avaliar($bimestre_4);
 
 $situacao_ano = avaliar($aproveitamento_ano);
-
-// session será um array de turmas e, por sua vez, cada turma será um array de alunos, os quais serão um array associativo, contendo matrícula, nome e notas (notas deve estar no formato de array).
-
-$_SESSION["turmas"] = []; // session será um array de turmas
-
-$_SESSION["turmas"] = [$turma => [],]; // cada turma será um array
-
-$_SESSION["turmas"][$turma] = ["alunos" => []]; // turma será um array de alunos
-
-$_SESSION["turmas"][$turma]["alunos"] = ["nome" => $nome,]; // um array associativo, contendo matrícula, nome e notas
-// $_SESSION["turmas"]["turma"]["alunos"] 
-// $_SESSION["turmas"]["turma"]["alunos"] = [];
-
-echo "<pre>";
-var_dump($_SESSION);
-echo "<pre>";
 
 // echo "Nome do aluno: $nome <br>";
 // echo "Turma do aluno: $turma <br>";
