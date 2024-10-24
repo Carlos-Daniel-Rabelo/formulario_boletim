@@ -53,9 +53,9 @@ $_SESSION["turmas"] = []; // session será um array de turmas
 
 $_SESSION["turmas"] = [$turma => [],]; // cada turma será um array
 
-$_SESSION["turmas"]["$turma"] = ["alunos" => []]; //cada turma será um array de alunos
+$_SESSION["turmas"][$turma] = ["alunos" => []]; // turma será um array de alunos
 
-$_SESSION["turmas"][$turma]["alunos"] = ["nome" => $nome,]; 
+$_SESSION["turmas"][$turma]["alunos"] = ["nome" => $nome,]; // um array associativo, contendo matrícula, nome e notas
 // $_SESSION["turmas"]["turma"]["alunos"] 
 // $_SESSION["turmas"]["turma"]["alunos"] = [];
 
