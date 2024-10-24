@@ -2,7 +2,7 @@
 
 session_start();
 
-// Verifica se os dados foram enviados via POST e salva nas variáveis de sessão
+// Verifica se os dados foram enviados via POST e salva nas variáveis
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // Nome e turma
@@ -47,20 +47,36 @@ $situacao_4 = avaliar($bimestre_4);
 
 $situacao_ano = avaliar($aproveitamento_ano);
 
-echo "Nome do aluno: $nome <br>";
-echo "Turma do aluno: $turma <br>";
+// session será um array de turmas e, por sua vez, cada turma será um array de alunos, os quais serão um array associativo, contendo matrícula, nome e notas (notas deve estar no formato de array).
 
-echo "1° Bimestre: $bimestre_1 <br>";
-echo "2° Bimestre: $bimestre_2 <br>";
-echo "3° Bimestre: $bimestre_3 <br>";
-echo "4° Bimestre: $bimestre_4 <br>";
+$_SESSION["turmas"] = []; // session será um array de turmas
 
-echo "Nota exigida por bimestre: $nota_exigida <br>";
-echo "Média final: $media_final <br>";
+$_SESSION["turmas"] = [$turma => [],]; // cada turma será um array
 
-echo "1° Situação: $situacao_1 <br>";
-echo "2° Situação: $situacao_2 <br>";
-echo "3° Situação: $situacao_3 <br>";
-echo "4° Situação: $situacao_4 <br>";
+$_SESSION["turmas"]["$turma"] = ["alunos" => []]; //cada turma será um array de alunos
 
-echo "Situação do ano: $situacao_ano <br>";
+$_SESSION["turmas"][$turma]["alunos"] = ["nome" => $nome,]; 
+// $_SESSION["turmas"]["turma"]["alunos"] 
+// $_SESSION["turmas"]["turma"]["alunos"] = [];
+
+echo "<pre>";
+var_dump($_SESSION);
+echo "<pre>";
+
+// echo "Nome do aluno: $nome <br>";
+// echo "Turma do aluno: $turma <br>";
+
+// echo "1° Bimestre: $bimestre_1 <br>";
+// echo "2° Bimestre: $bimestre_2 <br>";
+// echo "3° Bimestre: $bimestre_3 <br>";
+// echo "4° Bimestre: $bimestre_4 <br>";
+
+// echo "Nota exigida por bimestre: $nota_exigida <br>";
+// echo "Média final: $media_final <br>";
+
+// echo "1° Situação: $situacao_1 <br>";
+// echo "2° Situação: $situacao_2 <br>";
+// echo "3° Situação: $situacao_3 <br>";
+// echo "4° Situação: $situacao_4 <br>";
+
+// echo "Situação do ano: $situacao_ano <br>";
