@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $bimestre_4 = (float) $_POST["bimestre_4"];
 
     // Nota exigida por bimestre
-    $nota_exigida = $_POST["nota_exigida"];
+    $nota_exigida = (float) $_POST["nota_exigida"];
 
     // Somando notas do bimestres e calculando a média final 
     $media_final = ($bimestre_1 + $bimestre_2 + $bimestre_3 + $bimestre_4) / 4;
@@ -34,9 +34,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $_SESSION["turmas"][$turma]["alunos"] = ["matricula" => "id_matricula", "nome" => $nome, "notas" => [$bimestre_1, $bimestre_2, $bimestre_3, $bimestre_4]]; // um array associativo, contendo matrícula, nome e notas
 
-    echo "<pre>";
-    var_dump($_SESSION);
-    echo "<pre>";
+    // echo "<pre>";
+    // var_dump($_SESSION);
+    // echo "<pre>";
 };
 
 
