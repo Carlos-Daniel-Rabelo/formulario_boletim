@@ -79,3 +79,24 @@ $situacao_ano = avaliar($aproveitamento_ano);
 // echo "4° Situação: $situacao_4 <br>";
 
 // echo "Situação do ano: $situacao_ano <br>";
+
+// declarando as variáveis para conectar ao banco de dados em seguida
+$host = "localhost";
+$user = "root";
+$password = "";
+$dbname = "boletim";
+
+// criando a conexão com o banco de dados
+$con = new mysqli($host, $user, $password, $dbname);
+
+// verificando se ocorreu algum erro na conexão com o banco
+if ($con->connect_error){
+    die("Conexão Falhou" . $con->connect_error);
+}
+
+// exibindo mensagem na pagina
+echo "Conectado com sucesso <br>";
+
+// inserindo os dados do formulario nas tabelas e respectivas colunas
+$stmt->prepare("INSERT INTO teste(id, label) VALUES (?, ?)");
+
