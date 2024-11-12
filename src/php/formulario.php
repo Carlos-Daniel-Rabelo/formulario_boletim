@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $media_final = ($bimestre_1 + $bimestre_2 + $bimestre_3 + $bimestre_4) / 4;
 
     // Aproveitamento em percentual
-    $aproveitamento_ano = $media_final * 10 / 10;
+    $aproveitamento_ano = (float) $media_final * 10 / 10;
 
     // session será um array de turmas e, por sua vez, cada turma será um array de alunos, os quais serão um array associativo, contendo matrícula, nome e notas (notas deve estar no formato de array).
 
@@ -98,5 +98,17 @@ if ($con->connect_error){
 echo "Conectado com sucesso <br>";
 
 // inserindo os dados do formulario nas tabelas e respectivas colunas
-$stmt->prepare("INSERT INTO teste(id, label) VALUES (?, ?)");
+$stmt->prepare("INSERT INTO alunos(nome_aluno) VALUES ($nome)");
 
+$stmt->prepare("INSERT INTO turmas(numero_turma) VALUES ($turma)");
+
+$stmt->prepare("INSERT INTO notas(nota_exigida) VALUES ($nota_exigida)");
+
+$stmt->prepare("INSERT INTO notas(bimestre_1, bimestre_2, bimestre_3, bimestre_4) VALUES ($bimestre_1, $bimestre_2, $bimestre_3, $bimestre_4)");
+
+
+$stmt->prepare("INSERT INTO bimestres(situacao_1, situacao_2, situacao_3, situacao_4) VALUES ($situacao_1, $situacao_2, $situacao_3, $situacao_4)");
+
+$stmt->prepare("INSERT INTO bimestres(aproveitamento_ano) VALUES ($aproveitamento_ano)");
+
+$stmt->prepare("INSERT INTO bimestres(situacao_ano) VALUES ($situacao_ano)");
