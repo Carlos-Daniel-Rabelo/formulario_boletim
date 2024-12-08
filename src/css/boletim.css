@@ -1,4 +1,8 @@
 body{
+    background-image: url('../imagens/fundo.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
     width: 100vw;
     height: 100vh;
     margin: 0;
@@ -10,7 +14,7 @@ body{
 }
 
 table, th, td{
-    border: 1px solid rgb(227, 233, 227);
+    border: 1px solid black;
     border-collapse: collapse;
     text-align: center;
     padding: 10px;

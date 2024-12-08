@@ -1,0 +1,66 @@
+body{
+    background-image: url('../imagens/fundo.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+
+.container{
+    width: 400px;
+    height: 500px;
+    padding: 30px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 15px;
+    background-image: url('../imagens/lapis.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+form h1,p{
+    text-align: center;
+    margin: 10px;
+}
+
+.btn_login{
+    text-decoration: none;
+    color: white;
+    transition: ease-in-out 1s;
+}
+
+.btn_login:hover{
+    text-decoration: underline;
+    color: red;
+}
+
+.campo_entradas{
+    display: flex;
+    flex-direction: column;
+}
+
+label{
+    margin: 5px 0;
+}
+
+input{
+    padding: 10px;
+    border-color: lightskyblue;
+    border-radius: 5px;
+}
+
+input.btn{
+    margin-top: 30px;
+    transition: ease-in-out 1s;
+}
+
+input.btn:hover{
+    cursor: pointer;
+    background-color: red;
+    color: white;
+}

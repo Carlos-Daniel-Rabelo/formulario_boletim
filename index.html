@@ -1,52 +1,32 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulário</title>
-    <link rel="stylesheet" href="src/css/formulario.css">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="src/css/reset.css">
+    <link rel="stylesheet" href="src/css/cadastro.css">
 </head>
-
 <body>
     <div class="container">
-        <form action="src/php/sessao.php" method="post">
-            <div class="campo nome">
-                <label for="nome">Nome:</label>
-                <input type="text" name="nome" id="nome" required placeholder="Digite o nome do aluno">
-            </div>
-            <div class="campo turma">
-                <label for="turma">Turma:</label>
-                <input type="number" name="turma" id="turma" min="1" max="100" required placeholder="ex: 14">
-            </div>
+        <form action="./src/php/cadastro.php" method="post">
+            <h1>Criar nova Conta</h1>
+            <p>Já registrado? <strong><a href="./src/html/login.html" class="btn_login" target="_blank">Faça login aqui.</a></strong></p>
 
-            <div class="campo nota_exigida">
-                <label for="nota_exigida">Nota exigida por bimestre:</label>
-                <input type="number" name="nota_exigida" id="nota_exigida" min="1" max="10" step="0.1" placeholder="ex: 10" required>
-            </div>
+            <div class="campo_entradas">
+                <label for="nome">NOME</label>
+                <input type="text" name="nome" id="nome" placeholder="Jiara Martins" required>
 
-            <div class="campo bimestre_1">
-                <label for="bimestre_1">1° bimestre:</label>
-                <input type="number" name="bimestre_1" id="bimestre_1" min="0" max="100" step="0.1" required placeholder="ex: 7.0">
-            </div>
+                <label for="email">EMAIL</label>
+                <input type="email" name="email" id="email" placeholder="hello@reallygreatsite.com" required>
 
-            <div class="campo bimestre_2">
-                <label for="bimestre_2">2° bimestre:</label>
-                <input type="number" name="bimestre_2" id="bimestre_2" min="0" max="100" step="0.1" required placeholder="ex: 8.6">
-            </div>
+                <label for="senha">SENHA</label>
+                <input type="password" name="senha" id="senha" placeholder="senha" required minlength="8">
 
-            <div class="campo bimestre_3">
-                <label for="bimestre_3">3° bimestre:</label>
-                <input type="number" name="bimestre_3" id="bimestre_3" min="0" max="100" step="0.1" required placeholder="ex: 6.2">
-            </div>
-
-            <div class="campo bimestre_4">
-                <label for="bimestre_4">4° bimestre:</label>
-                <input type="number" name="bimestre_4" id="bimestre_4" min="0" max="100" step="0.1" required placeholder="ex: 5">
-            </div>
-
-            <div class="campo botao">
-                <input type="submit" value="Enviar">
+                <label for="nascimento">DATA DE NASCIMENTO</label>
+                <input type="date" name="nascimento" id="nascimento" value="2024-12-08" required>
+                
+                <input type="submit" value="inscrever-se" class="btn">
             </div>
         </form>
     </div>

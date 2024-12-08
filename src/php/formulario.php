@@ -2,6 +2,8 @@
 
 session_start();
 
+require_once 'conexao.php';
+
 // Verifica se os dados foram enviados via POST e salva nas variáveis
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
@@ -81,26 +83,4 @@ echo "4° Situação: $situacao_4 <br>";
 
 echo "Situação do ano: $situacao_ano <br>";
 
-// Você deve habilitar o relatório de erros para mysqli antes de tentar fazer uma conexão 
-mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
-
-//Estilo processual (fazendo a conexão com o servidor de banco de dados)
-$conexao = new mysqli('localhost', 'root', '', 'boletim');
-
-// Defina o conjunto de caracteres desejado após estabelecer uma conexão
-$conexao->set_charset('utf8mb4');
-
-// Declaração preparada, etapa 1: preparar
-$stmt = $conexao->prepare("INSERT INTO alunos(nome_aluno) VALUES (?)");
-
-// Declaração preparada, estágio 2: vincular e executar
-$stmt -> bind_param("s", $nome);
-
-$stmt->execute();
-
-
-// $conexao->close();
-
-
-// $stmt = $conexao->prepare("INSERT INTO alunos (nome_aluno) VALUES (?)");
-// $stmt->bindParam('s', $nome);
+require_once 'inserir_dados.php';
